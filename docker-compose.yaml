@@ -1,0 +1,20 @@
+#INT YAML PGADMIN ONLY
+version: '3.8'
+
+services:
+  # SERVICE 1: POSTGRES (Your Database)
+  postgres-db:
+    image: postgres:14-alpine
+    container_name: shopzada-postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=shopzada_admin
+      - POSTGRES_PASSWORD=bo_is_dabest
+      - POSTGRES_DB=shopzada_dwh
+    ports:
+      - "5555:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
