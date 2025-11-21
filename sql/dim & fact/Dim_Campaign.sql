@@ -1,3 +1,5 @@
+SELECT * FROM Dim_Campaign;
+
 CREATE TABLE IF NOT EXISTS Dim_Campaign (
     campaign_key SERIAL PRIMARY KEY,    
     campaign_id VARCHAR,                
@@ -11,5 +13,3 @@ SELECT DISTINCT
     campaign_name, 
     discount::DECIMAL (10,2)
 FROM staging_campaign_data;
-
-SELECT * FROM Dim_Campaign;
