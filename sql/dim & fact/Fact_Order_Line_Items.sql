@@ -1,4 +1,6 @@
-DROP TABLE IF EXISTS Fact_Order_Line_Items;
+DROP TABLE IF EXISTS Fact_Order_Line_Items; --pag matagal mag run drop niyo muna tas run test.sql tsaka index.
+
+SELECT * FROM Fact_Order_Line_Items;
 
 CREATE TABLE IF NOT EXISTS Fact_Order_Line_Items (
     Date_Key INTEGER,
@@ -81,7 +83,3 @@ LEFT JOIN Dim_Staff AS ds
     ON somd.staff_id = ds.staff_id
 LEFT JOIN Dim_Campaign AS dcam 
     ON stcd.campaign_id = dcam.campaign_id;
-
-SELECT * FROM Fact_Order_Line_Items;
-
---repush
