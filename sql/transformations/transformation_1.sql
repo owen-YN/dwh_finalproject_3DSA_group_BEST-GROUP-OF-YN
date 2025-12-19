@@ -1,6 +1,6 @@
 -- FIX: Cast discount to TEXT for regex, and output back to NUMERIC for storage
 UPDATE staging_campaign_data
-SET discount = SUBSTRING(discount::TEXT FROM '^[0-9]+')::NUMERIC;
+SET discount = (regexp_match(discount::TEXT, '([0-9]+(\.[0-9]+)?)'))[1]::NUMERIC;
 
 ALTER TABLE staging_campaign_data
 ALTER COLUMN discount TYPE NUMERIC(10,2) 
